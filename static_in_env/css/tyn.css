@@ -1,0 +1,464 @@
+#section-list-services {
+    padding: 50px 15px 80px;
+    background-color: #fff;
+}
+
+#section-counselors {
+    background-color: #f4f7f8;
+    padding: 50px 15px 80px;
+    font-family: Quicksand,sans-serif;
+    line-height: 1.5;
+}
+
+#section-counselors .title-line {
+    text-align: center;
+    font-size: 34px;
+    color: #022d39;
+    font-weight: 700;
+}
+
+#section-counselors .sub-title {
+    text-align: center;
+    color: #888;
+}
+
+#section-counselors .list_counselor_elements .counselor-element {
+    display: -webkit-inline-box;
+    min-height: 450px;
+    height: 580px;
+    margin-bottom: 30px;
+}
+
+#section-counselors .list_counselor_elements .counselor-element img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: block;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 235px;
+    max-width: 100%;
+}
+
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container {
+    display: table-cell;
+}
+
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container .info_counselor {
+    max-height: 280px;
+    min-height: 280px;
+    padding: 30px 20px;
+    display: block;
+    overflow: hidden;
+}
+
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container .info_counselor .name {
+    max-height: 27px;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 600;
+    color: #384047;
+    text-align: center;
+}
+
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container .info_counselor .title{
+    height: 40px;
+    overflow: hidden;
+    color: #f2a106;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container .info_counselor .university {
+    padding-bottom: 8px;
+    display: table;
+}
+
+
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container .info_counselor .university i{
+    display: table-cell;
+    vertical-align: top;
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container .info_counselor .address {
+    display: table;
+}
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container .info_counselor .address i{
+    padding-left: 5px;
+    text-align: center;
+    display: table-cell;
+    font-size: 20px;
+    padding-right: 25px;
+}
+
+#section-counselors .list_counselor_elements .counselor-element .counselor-element-container .bottom-element {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-top: .1px solid #000;
+}
+
+.network-counselors-content{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-top: 50px;
+}
+
+.counselors {
+    color: #062d38;
+    width: 100%;
+    margin-bottom: 15px;
+    box-shadow: 0 0 18px 0 rgba(0,0,0,.13);
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.counselor-image{
+    -ms-flex-order: 1;
+    order: 1;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-right: 1px solid #eee;
+    width: 35%;
+}
+
+.counselor-about{
+    width: 65%;
+    -ms-flex-order: 2;
+    order: 2;
+    padding: 30px 20px;
+    font-size: 14px;
+    position: relative;
+}
+
+avatar-counselor {
+    margin-bottom: 20px;
+}
+
+.name-counselor{
+    font-size: 18px;
+}
+
+.element-info {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    box-shadow: none;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    border-radius: .25rem;
+    transition: all .15s ease;
+}
+
+.input-group-append, .input-group-prepend {
+    display: flex;
+}
+
+.color_button {
+    text-transform: none;
+    font-weight: 400;
+    position: absolute;
+    width: 53px;
+    height: 50px;
+    left: 90%;
+    bottom: 85px;
+    border-radius: 100%;
+    border-color: #0f2f3c;
+    background-color: #0f2f3c;
+    color: #fff;
+}
+
+.section-header {
+    height: 320px;
+    background-image: url(/static/img/sample.jpg);
+}
+
+.title_page {
+    font-family: Quicksand,sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+    padding-top: 150px;
+    color: #f1a73c;
+}
+
+#info-counselor {
+    font-family: Quicksand,sans-serif;
+    line-height: 1.5;
+}
+
+#info-counselor .header-info-counselor {
+    margin-top: -65px;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+}
+
+#info-counselor .header-info-counselor .categories-element {
+    -ms-flex-order: 1;
+    order: 1;
+    color: #f1ab00;
+}
+
+#info-counselor .header-info-counselor .categories-element .categories {
+    padding-top: 75px;
+}
+
+#info-counselor .header-info-counselor .categories-element .categories .services{
+    display: unset;
+}
+
+#info-counselor .header-info-counselor .categories-element .categories a {
+    color: #d6dae2;
+    background-color: #212529;
+    padding: 3px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    text-transform: unset;
+}
+
+#info-counselor .header-info-counselor .categories-element a i.fa.fa-linkedin {
+    margin-top: 10px;
+    display: inline-grid;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #0077b5;
+    color: #0077b5;
+}
+
+#info-counselor .header-info-counselor .avatar-counselor {
+    -ms-flex-order: 2;
+    order: 2;
+    text-align: center;
+}
+
+#info-counselor .header-info-counselor .avatar-counselor img.avatar-image {
+    width: 165px;
+    height: 165px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    padding: 14px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+#info-counselor .header-info-counselor .avatar-counselor h4.name-counselor {
+    color: #384047;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+#info-counselor .header-info-counselor .avatar-counselor .counselor-title {
+    font-size: 14px;
+}
+
+#info-counselor .header-info-counselor .info-address {
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    position: relative;
+    padding-bottom: 55px;
+    text-align: left;
+    -ms-flex-order: 3;
+    order: 3;
+    color: #f1ab00;
+}
+
+#info-counselor .header-info-counselor .info-address .container-info-address {
+    display: table;
+    padding-top: 25px;
+    font-size: 14px;
+}
+
+#info-counselor .header-info-counselor .info-address .container-info-address .contain-address-time .address-counselor {
+    padding-right: 10px;
+    display: table-cell;
+}
+
+#info-counselor .header-info-counselor .info-address .container-info-address .contain-address-time .start-with-mora {
+    display: table-cell;
+}
+
+#info-counselor .header-info-counselor .info-address .container-info-address a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#info-counselor .header-info-counselor .info-address .container-info-address a .booking.btn {
+    color: #d6dae2;
+    background-color: #212529;
+}
+
+#info-counselor .content-table {
+    margin: 30px 0;
+    border: 2px solid #e6e7ef;
+    border-radius: 5px;
+}
+
+#info-counselor .content-table ul {
+    padding: 15px;
+    text-align: center;
+}
+
+#info-counselor .content-table ul li {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin-right: 10px;
+}
+
+#info-counselor .content-table ul li a {
+    color: #888;
+}
+
+#info-counselor .body-info-counselor {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+#info-counselor .body-info-counselor .overview {
+    -ms-flex-order: 2;
+    order: 2;
+}
+
+#info-counselor .body-info-counselor .overview .overview-info {
+    padding: 15px 20px;
+    border: 2px solid #e6e7ef;
+    border-radius: 8px;
+}
+
+#info-counselor .body-info-counselor .overview .title-overview {
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#info-counselor .body-info-counselor .overview .overview-info .contain-info {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+#info-counselor .body-info-counselor .overview .overview-info .contain-info i.icon-elelment {
+    margin-right: 5px;
+    padding-top: 4px;
+}
+
+#info-counselor .body-info-counselor .overview .service_info {
+    margin-top: 20px;
+    border: 2px solid #e6e7ef;
+}
+
+#info-counselor .body-info-counselor .overview .title-overview {
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#info-counselor .body-info-counselor .overview .service_info .nav-wrapper ul.nav-pills.flex-md-row {
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+#info-counselor .body-info-counselor .overview .service_info .tab-pane {
+    font-size: 15px;
+}
+
+#info-counselor .body-info-counselor .overview .service_info .tab-pane .title-service {
+    text-align: center;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+#info-counselor .body-info-counselor .overview .service_info .tab-pane .price_service .price {
+    text-align: right;
+    float: right;
+}
+
+#info-counselor .body-info-counselor .information {
+    -ms-flex-order: 1;
+    order: 1;
+}
+
+#info-counselor .body-info-counselor .information .introduce-section p.intro {
+    overflow-wrap: break-word;
+}
+
+#info-counselor .body-info-counselor .information .degree-section .degree-group {
+    padding: 15px 0 0;
+}
+
+#info-counselor .body-info-counselor .information .degree-section .degree-group .graduating {
+    display: table;
+    padding-bottom: 30px;
+}
+
+#info-counselor .body-info-counselor .information .degree-section .degree-group .graduating i.fa-graduation-cap {
+    display: table-cell;
+    font-size: 15px;
+    color: #f2a106;
+    padding-right: 15px;
+}
+
+#info-counselor .body-info-counselor .information .degree-section .degree-group .graduating .info-graduating .university-major .university-name {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#experience-section .h2 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #32325d;
+}
+
+#info-counselor .body-info-counselor .information .experience-section .experience-group {
+    padding: 15px 0 0;
+}
+
+#info-counselor .body-info-counselor .information .experience-section .experience-group .experience {
+    display: table;
+    padding-bottom: 30px;
+}
+
+#info-counselor .body-info-counselor .information .experience-section .experience-group .experience i.fa-circle {
+    display: table-cell;
+    font-size: 15px;
+    color: #f2a106;
+    padding-right: 15px;
+    margin-top: 10px;
+}
+
+#info-counselor .body-info-counselor .information .experience-section .experience-group .experience .info-experience .experience-major .company-name {
+    margin-right: 10px;
+    font-size: 14px;
+}

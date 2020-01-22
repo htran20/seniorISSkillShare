@@ -6,7 +6,7 @@
   <main>
 
     <!--Carousel Wrapper-->
-    <div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel">
+    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
 
     <!--Indicators-->
     <ol class="carousel-indicators">
@@ -189,109 +189,48 @@
     </section>
     <!--/.Icons Grid -->
 
+    <section id="section-counselors">
+      <div class="container">
 
-    <div class="container">
-
-      <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
-
-        <!-- Navbar brand -->
-        <span class="navbar-brand">Categories:</span>
-
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-
-          <!-- Links -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">All
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-
-              <a class="nav-link" href="/search/?q=a" >Shirts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/search/?q=oh">Sport wears</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/search/?q=a">Outwears</a>
-            </li>
-
-          </ul>
-          <!-- Links -->
-
-          <form class="form-inline" action="{% url 'core:search-results' %}" method="get">
-            <div class="md-form my-0">
-              <input name="city" class="form-control mr-sm-2" type="text" placeholder="Search City" aria-label="Search">
-              <input name="state" class="form-control mr-sm-2" type="text" placeholder="Search State" aria-label="Search">
-              <input type="submit" value="OK">
-            </div>
-          </form>
-        </div>
-        <!-- Collapsible content -->
-
-      </nav>
-      <!--/.Navbar-->
-
-      <!--Section: Products v.3-->
-      <section class="text-center mb-4">
-
-        <div class="row wow fadeIn">
+      <div class="title-line">Counselor Network</div>
+      <div class="col-md-12 sub-title">
+        Bla Bla
+      </div>
+      <div class="row col-md-12 list_counselor_elements">
 
           {% for item in object_list %}
-          <div class="col-lg-3 col-md-6 mb-4">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 counselor-element">
 
-            <div class="card">
-
-              <div class="view overlay">
-                {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
+            <div class="card counselor-element-container">
+              <a href="{{ item.get_absolute_url }}">
                 <img src="{{ item.image.url }}" class="card-img-top">
+              </a>
+              <div class="info_counselor">
+                <div class="name">{{ item.name }}</div>
+                <div class="title"> Title</div>
+                <div class="university">
+                  <i class="fa fa-graduation-cap"></i>
+                  <span>Bla Bla
+                   <strong>University</strong>
+                  </span>
+                </div>
+                <div class="address">
+                  <i class="fa fa-map-marker"></i>
+                  City, State
+                </div>
+              </div>
+              <div class="bottom-element">
                 <a href="{{ item.get_absolute_url }}">
-                  <div class="mask rgba-white-slight"></div>
+                  More details
+                  <i class="fa fa-arrow-right"></i>
                 </a>
               </div>
-
-              <div class="card-body text-center">
-                <a href="" class="grey-text">
-                  <h5>{{ item.get_category_display }}</h5>
-
-                </a>
-                <h5>
-                  <strong>
-                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
-                      <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
-                    </a>
-                  </strong>
-                </h5>
-
-                <h4 class="font-weight-bold blue-text">
-                  <strong>$
-                  {% if item.discount_price %}
-                  {{ item.discount_price }}
-                  {% else %}
-                  {{ item.price }}
-                  {% endif %}
-                  </strong>
-                </h4>
-
-              </div>
-
             </div>
 
           </div>
           {% endfor %}
         </div>
 
-      </section>
-      <!--Section: Products v.3-->
 
       <!--Pagination-->
 
@@ -327,7 +266,16 @@
       {% endif %}
       <!--Pagination-->
 
+      <!--Learn more-->
+      <nav class="d-flex justify-content-center wow fadeIn">
+        <a href="{% url 'mentor:search' %}" class="btn btn-lg">Learn more
+                  <i class="fas fa-graduation-cap ml-2"></i>
+        </a>
+      </nav>
+      <!--/.Learn more-->
+
     </div>
+    </section>
   </main>
 
 {% endblock content %}

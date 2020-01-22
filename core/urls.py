@@ -12,6 +12,8 @@ from .views import (
     RequestRefundView
 )
 
+from .views import SearchResultsView, ItemAPIView, SearchResultsAPIView, SearchResultsView1
+
 app_name = 'core'
 
 urlpatterns = [
@@ -25,5 +27,9 @@ urlpatterns = [
     path('remove-item-from-cart/<slug>/', remove_single_item_from_cart,
          name='remove-single-item-from-cart'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
-    path('request-refund/', RequestRefundView.as_view(), name='request-refund')
+    path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
+    path('search/', SearchResultsView.as_view(), name='search-results'),
+    path('api/cities/', ItemAPIView.as_view()),
+    path('api/search/', SearchResultsAPIView.as_view(), name='search-results-api'),
+
 ]

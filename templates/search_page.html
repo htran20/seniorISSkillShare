@@ -152,143 +152,102 @@
   </div>
     <!--/.Carousel Wrapper-->
 
-    <!-- Icons Grid -->
-    <section class="features-icons bg-light text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                  <i class="far fa-comments fa-4x" style="color:rgb(0, 123, 255)"></i>
-              </div>
-              <h3>Fully Responsive</h3>
-              <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="far fa-comments fa-4x" style="color:rgb(0, 123, 255)"></i>
-              </div>
-              <h3>Bootstrap 4 Ready</h3>
-              <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="far fa-comments fa-4x" style="color:rgb(0, 123, 255)"></i>
-<!--                <i class="icon-check m-auto text-primary"></i>-->
-              </div>
-              <h3>Easy to Use</h3>
-              <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--/.Icons Grid -->
-
 
     <div class="container">
 
-      <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
-
-        <!-- Navbar brand -->
-        <span class="navbar-brand">Categories:</span>
-
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-
-          <!-- Links -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">All
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-
-              <a class="nav-link" href="/search/?q=a" >Shirts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/search/?q=oh">Sport wears</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/search/?q=a">Outwears</a>
-            </li>
-
-          </ul>
-          <!-- Links -->
-
-          <form class="form-inline" action="{% url 'core:search-results' %}" method="get">
-            <div class="md-form my-0">
-              <input name="city" class="form-control mr-sm-2" type="text" placeholder="Search City" aria-label="Search">
-              <input name="state" class="form-control mr-sm-2" type="text" placeholder="Search State" aria-label="Search">
-              <input type="submit" value="OK">
-            </div>
-          </form>
-        </div>
-        <!-- Collapsible content -->
-
-      </nav>
-      <!--/.Navbar-->
-
       <!--Section: Products v.3-->
-      <section class="text-center mb-4">
+      <section class="mb-4">
 
-        <div class="row wow fadeIn">
+        <div class="network-counselors-content container">
 
-          {% for item in object_list %}
-          <div class="col-lg-3 col-md-6 mb-4">
+          <!--Grid column-->
+          <div class="col-md-4">
+            <form class="form-group" action="{% url 'mentor:search' %}" method="get">
+                <label> Finding by name</label>
+                <div class="input-group mb-4">
+                  <input name="name" placeholder=" Search" aria-label="Name Search">
+                  <div class="input-group-prepend">
+                    <button type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+            </form>
 
-            <div class="card">
+            <form class="form-group" action="{% url 'mentor:search' %}" method="get">
+                <label> Finding by location</label>
+                <div class="input-group mb-4">
+                  <input name="city" placeholder=" Search" aria-label="Location Search">
+                  <div class="input-group-prepend">
+                    <button type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+            </form>
 
-              <div class="view overlay">
-                {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
-                <img src="{{ item.image.url }}" class="card-img-top">
-                <a href="{{ item.get_absolute_url }}">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
+            <form class="form-group" action="{% url 'mentor:search' %}" method="get">
+                <label> Finding by school</label>
+                <div class="input-group mb-4">
+                  <input name="school" placeholder=" Search" aria-label="School Search">
+                  <div class="input-group-prepend">
+                    <button type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+            </form>
 
-              <div class="card-body text-center">
-                <a href="" class="grey-text">
-                  <h5>{{ item.get_category_display }}</h5>
 
-                </a>
-                <h5>
-                  <strong>
-                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
-                      <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
+          </div>
+
+          <div class="col-md-8">
+
+            <div class="col">
+
+            {% for item in object_list %}
+            <div class="counselors row">
+
+                <div class="counselor-image">
+                  {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top"> {% endcomment %}
+                  <div class="avatar-counselor">
+                    <a href="{{ item.get_absolute_url }}">
+                      <img src="{{ item.image.url }}" class="card-img-top">
                     </a>
-                  </strong>
-                </h5>
+                  </div>
+                  <div class="name-counselor">
+                    {{ item.name }}
+                  </div>
+                </div>
 
-                <h4 class="font-weight-bold blue-text">
-                  <strong>$
-                  {% if item.discount_price %}
-                  {{ item.discount_price }}
-                  {% else %}
-                  {{ item.price }}
-                  {% endif %}
-                  </strong>
-                </h4>
+                <div class="counselor-about">
+                  <div class="element-info">
+                    <i class="fas fa-user ml-2 mr-4"></i> Employer:
+                  </div>
+                  <div class="element-info">
+                    <i class="fas fa-bookmark ml-2 mr-4"></i> Certificate:
+                  </div>
+                  <div class="element-info">
+                    <i class="fas fa-graduation-cap ml-2 mr-3"></i> School:
+                  </div>
+                  <div class="element-info">
+                    <i class="fas fa-map-marker-alt ml-2 mr-4"></i> Location:
+                  </div>
+                  <div class="button-element">
+                     <a href="{{ item.get_absolute_url }}" class="btn button color_button">
+                       <i class="fa fa-arrow-right"></i>
+                     </a>
+                  </div>
 
-              </div>
+                </div>
 
+
+            </div>
+            {% endfor %}
             </div>
 
           </div>
-          {% endfor %}
-        </div>
+      </div>
 
       </section>
       <!--Section: Products v.3-->
@@ -325,11 +284,9 @@
         </ul>
       </nav>
       {% endif %}
-      <!--Pagination-->
 
     </div>
   </main>
 
 {% endblock content %}
-
 

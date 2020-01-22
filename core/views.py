@@ -10,6 +10,14 @@ from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
 from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
 
+from .models import City
+from django.views.generic import TemplateView
+from django.db.models import Q
+
+from rest_framework import generics, filters
+from rest_framework.permissions import IsAdminUser
+from .serializers import CitySerializer
+
 import random
 import string
 import stripe
@@ -345,7 +353,7 @@ class PaymentView(View):
 
 class HomeView(ListView):
     model = Item
-    paginate_by = 10
+    paginate_by = 2
     template_name = "home.html"
 
 
@@ -460,8 +468,9 @@ def get_coupon(request, code):
         coupon = Coupon.objects.get(code=code)
         return coupon
     except ObjectDoesNotExist:
+        print("hee")
         messages.info(request, "This coupon does not exist")
-        return redirect("core:checkout")
+
 
 
 class AddCouponView(View):
@@ -477,6 +486,7 @@ class AddCouponView(View):
                 messages.success(self.request, "Successfully added coupon")
                 return redirect("core:checkout")
             except ObjectDoesNotExist:
+                print("hehe")
                 messages.info(self.request, "You do not have an active order")
                 return redirect("core:checkout")
 
@@ -514,3 +524,62 @@ class RequestRefundView(View):
             except ObjectDoesNotExist:
                 messages.info(self.request, "This order does not exist.")
                 return redirect("core:request-refund")
+
+# class ItemSearchView(ListView):
+#     model = Item
+#     paginate_by = 2
+#     template_name = "home.html"
+
+class SearchResultsView(ListView):
+    model = City
+    template_name = 'search_results.html'
+
+    def get_queryset(self):
+        query_city = self.request.GET.get('city')
+        query_state = self.request.GET.get('state')
+        if not query_city:
+            query_city = ""
+        if not query_state:
+            query_state = ""
+        object_list = City.objects.filter(
+            Q(name__icontains=query_city) & Q(state__icontains=query_state)
+        )
+        return object_list
+
+class SearchResultsView1(ListView):
+    model = City
+    template_name = 'search_page.html'
+    paginate_by = 3
+
+    def get_queryset(self):
+        query_city = self.request.GET.get('city')
+        query_state = self.request.GET.get('state')
+        if not query_city:
+            query_city = ""
+        if not query_state:
+            query_state = ""
+        object_list = City.objects.filter(
+            Q(name__icontains=query_city) & Q(state__icontains=query_state)
+        )
+        return object_list
+
+class ItemAPIView(generics.ListCreateAPIView):
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+    permission_classes = [IsAdminUser]
+
+class SearchResultsAPIView(generics.ListCreateAPIView):
+    # search_fields = ['question_text']
+    # filter_backends = (filters.SearchFilter,)
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+    permission_classes = [IsAdminUser]
+
+
+    def get_queryset(self):
+        query_city = self.request.GET.get('city')
+        query_state = self.request.GET.get('state')
+        object_list = City.objects.filter(
+            Q(name__icontains=query_city) & Q(state__icontains=query_state)
+        )
+        return object_list
