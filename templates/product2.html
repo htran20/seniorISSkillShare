@@ -32,14 +32,14 @@
           <div  class="container-info-address">
             <div  class="contain-address-time">
               <div class="address-counselor">
-                <i class="fa fa-map-marker"></i> {{object.address.city}}, {{object.address.country.name}}
+                <i class="fa fa-map-marker"></i> {{object.address.state}}, {{object.address.country}}
               </div>
               <div class="start-with-mora">
-                <i class="fa fa-history"></i>Tham gia từ 2020
+                <i class="fa fa-history"></i>Join from 2020
               </div>
             </div>
             <a href="/booking?id=5d25ac672d8c4915f7955fc4" class="">
-              <button class="booking btn">Đặt lịch hẹn
+              <button class="booking btn">Booking
                 <i class="fa fa-calendar-alt"></i>
               </button>
             </a>
@@ -49,30 +49,30 @@
         <div class="content-table col-md-12">
         <ul class="nav nav-pills nav-fill flex-column flex-sm-row">
           <li class="nav-item">
-            <a data-toggle="tab" href="#introduce-section">Giới thiệu về bản thân</a>
+            <a data-toggle="tab" href="#introduce-section">About</a>
           </li>
           <li class="nav-item">
-            <a data-toggle="tab" href="#degree-section">Bằng cấp</a>
+            <a data-toggle="tab" href="#degree-section">Degree</a>
           </li>
           <li class="nav-item">
-            <a data-toggle="tab" href="#experience-section">Kinh nghiệm làm việc</a>
+            <a data-toggle="tab" href="#experience-section">Experience</a>
           </li>
         </ul>
       </div>
       <div class="body-info-counselor">
         <div class="overview col-md-4">
           <div class="overview-info">
-            <div class="title-overview">Tổng quan về Cố vấn</div>
+            <div class="title-overview">Mentor Overview</div>
             <div class="education-level contain-info">
               <i class="fa fa-graduation-cap icon-elelment"></i>
               <div>
-                <span >Trình độ học vấn cao nhất</span>
+                <span >Highest Education</span>
                 <div>{{object.get_degree_display}}</div>
               </div>
             </div>
           </div>
           <div class="service_info">
-            <div class="title-overview">Dịch vụ cung cấp</div>
+            <div class="title-overview">Provided Services</div>
              <div>
                <div class="nav-wrapper">
                  <ul id="tabs-icons-text" role="tablist" class="nav nav-pills flex-md-row">
@@ -99,8 +99,8 @@
                          </div>
                        </div>
                        <div class="price_service">
-                         <span class="price-title">Giá</span>
-                         <span class="price">Thỏa thuận</span>
+                         <span class="price-title">Price</span>
+                         <span class="price">???</span>
                        </div>
                      </div>
                      <div class="tab-pane show fade">
@@ -110,8 +110,8 @@
                           </div>
                         </div>
                         <div class="price_service">
-                          <span class="price-title">Giá</span>
-                          <span class="price">Thỏa thuận</span>
+                          <span class="price-title">Price</span>
+                          <span class="price">???</span>
                         </div>
                       </div>
                     </div>
@@ -122,13 +122,13 @@
           </div>
         <div  class="information col-md-8">
           <div id="introduce-section" class="introduce-section">
-            <h2  class="title">Giới thiệu về bản thân</h2>
+            <h2  class="title">About</h2>
             <p  class="intro">
               {{object.description}}
             </p>
           </div>
           <div id="degree-section" class="degree-section">
-            <h2 class="title'">Bằng cấp</h2>
+            <h2 class="title'">Degree</h2>
             <div class="degree-group">
               <div >
                 <div class="graduating row">
@@ -148,16 +148,16 @@
             </div>
           </div>
           <div  id="experience-section" class="experience-section">
-            <h2  class="title">Kinh nghiệm làm việc</h2>
+            <h2  class="title">Experience</h2>
             <div  class="experience-group">
               <div>
                 <div class="experience row">
                   <i  class="fa fa-circle"></i>
                   <div  class="info-experience">
                     <div  class="experience-major">
-                      <strong  class="company-name">Company ABC
+                      <strong  class="company-name">{{object.employer}}
                       </strong>
-                      <span >Role</span>
+                      <span >{{object.title}}</span>
                     </div>
                     <div  class="time-line">
                       <span >2017-09-01 - </span>

@@ -19,6 +19,13 @@
 
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item">
+            <a href="/" class="nav-link waves-effect">
+              <span class="clearfix d-none d-sm-inline-block"> About </span>
+            </a>
+          </li>
+
           <li class="nav-item">
             <div class="dropdown">
               <a class="nav-link dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,6 +37,20 @@
               </div>
             </div>
           </li>
+
+          <li class="nav-item">
+            <a href="/" class="nav-link waves-effect">
+              <span class="clearfix d-none d-sm-inline-block"> Mentor </span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/" class="nav-link waves-effect">
+              <span class="clearfix d-none d-sm-inline-block"> Blog </span>
+            </a>
+          </li>
+
+
         </ul>
 
         <!-- Right -->
@@ -40,6 +61,11 @@
               <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
               <i class="fas fa-shopping-cart"></i>
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'mentor:user-profile' %}" class="nav-link waves-effect">
+              <span class="clearfix d-none d-sm-inline-block"> Account </span>
             </a>
           </li>
           <li class="nav-item">

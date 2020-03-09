@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models import Sum
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
+import datetime
 
 
 DEGREE_CHOICES = (
@@ -13,18 +14,12 @@ DEGREE_CHOICES = (
     ("4", "Doctoral degree"),
 )
 
-class UserMentorProfile(models.Model):
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.user.username
-
 class Address(models.Model):
     street_address = models.CharField(max_length=100)
     city = models.CharField(max_length=100, blank=True)
-    country = CountryField(multiple=False)
-    zip = models.CharField(max_length=100)
+    state = models.CharField(max_length=100, blank=True)
+    country = CountryField(multiple=False, default='US')
+    zip = models.CharField(max_length=100, default='00000')
     default = models.BooleanField(default=False)
 
     # def __str__(self):
@@ -32,6 +27,28 @@ class Address(models.Model):
 
     class Meta:
         verbose_name_plural = 'Addresses'
+
+class UserMentorProfile(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=50, blank=True)
+    last_name = models.CharField(max_length=50, blank=True)
+    age = models.IntegerField(null=True)
+    email = models.CharField(max_length=100, blank=True)
+    # address = models.ForeignKey(Address, on_delete=models.SET_NULL, blank=True, null=True)
+    description = models.CharField(max_length=500, default="This is a default text")
+    school = models.CharField(max_length=100, default="Default school")
+    degree = models.CharField(max_length=50, choices=DEGREE_CHOICES, default='1')
+    major = models.CharField(max_length=100, blank=True)
+    about = models.TextField(blank=True)
+
+
+    def __str__(self):
+        return self.user.username
+
+    def get_email(self):
+        return self.user.email
+
 
 class MentorProfile(models.Model):
     name = models.CharField(max_length=50)
@@ -42,14 +59,13 @@ class MentorProfile(models.Model):
     title = models.CharField(max_length=100, default="This is a default title")
     employer = models.CharField(max_length=200, blank=True)
     school = models.CharField(max_length=100, default="Default school")
-    major = models.CharField(max_length=100, default="Default major")
-    school_start_date = models.DateField()
-    school_end_date = models.DateField()
+
+    school_start_date = models.DateField(default=datetime.date.today)
+    school_end_date = models.DateField(default=datetime.date.today)
     image = models.ImageField(blank=True)
     linkedin = models.URLField(max_length=200,  blank=True)
     degree = models.CharField(max_length=50, choices=DEGREE_CHOICES, default='1')
-    major = models.CharField(max_length=100, blank=True)
-    about = models.CharField(max_length=300, blank=True)
+    major = models.CharField(max_length=100, default="Default major")
     certificate = models.CharField(max_length=300, blank=True)
     skills = models.CharField(max_length=300, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
