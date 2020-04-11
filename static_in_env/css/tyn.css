@@ -477,3 +477,7 @@ avatar-counselor {
     font-weight: 700;
     margin-bottom: 25px;
 }
+
+#home-background {
+    height: 500px;
+}
