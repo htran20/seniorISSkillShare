@@ -103,6 +103,22 @@
     border-top: .1px solid #000;
 }
 
+.content-section {
+    padding-top: 30px;
+    padding-left: 100px;
+
+}
+
+.content-header {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.content-body {
+    font-size: 25px;
+}
+
+
 .network-counselors-content{
     display: -ms-flexbox;
     display: flex;
@@ -141,7 +157,7 @@
 }
 
 avatar-counselor {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .name-counselor{
@@ -187,7 +203,7 @@ avatar-counselor {
 }
 
 .section-header {
-    height: 320px;
+    height: 200px;
     background-image: url(/static/img/sample.jpg);
 }
 
@@ -197,8 +213,8 @@ avatar-counselor {
     text-align: center;
     font-size: 50px;
     font-weight: 700;
-    padding-top: 150px;
-    color: #f1a73c;
+    padding-top: 70px;
+    color: #fff;
 }
 
 #info-counselor {
@@ -476,8 +492,4 @@ avatar-counselor {
     color: #022d39;
     font-weight: 700;
     margin-bottom: 25px;
-}
-
-#home-background {
-    height: 500px;
 }

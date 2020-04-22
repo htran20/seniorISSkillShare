@@ -1,11 +1,18 @@
 {% load template_tags %}
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light blue scrolling-navbar">
     <div class="container">
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="/">
-        <strong class="blue-text">SkillSHARE</strong>
+
+
+        <strong class="white-text">
+          <font face = "montserrat" size="+2">
+          <b> SkillSHARE </b>
+          </font>
+
+        </strong>
       </a>
 
       <!-- Collapse -->
@@ -21,10 +28,12 @@
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item">
-            <a href="/" class="nav-link waves-effect">
+            <a href="/about" class="nav-link waves-effect">
               <span class="clearfix d-none d-sm-inline-block"> About </span>
             </a>
           </li>
+
+
 
           <li class="nav-item">
             <div class="dropdown">
@@ -32,16 +41,23 @@
                 Services
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{% url 'mentor:search' %}">Find a mentor</a>
-                <a class="dropdown-item" href="#">Be a mentor</a>
+                <a class="dropdown-item" href="/tutor">Tutor</a>
+                <a class="dropdown-item" href="/essay-counselor">Essay Counselor</a>
+                <a class="dropdown-item" href="/insider">Insider</a>
               </div>
             </div>
           </li>
 
           <li class="nav-item">
-            <a href="/" class="nav-link waves-effect">
-              <span class="clearfix d-none d-sm-inline-block"> Mentor </span>
-            </a>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Mentor
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'mentor:search' %}">Find a mentor</a>
+                <a class="dropdown-item" href="#">Be a mentor</a>
+              </div>
+            </div>
           </li>
 
           <li class="nav-item">
