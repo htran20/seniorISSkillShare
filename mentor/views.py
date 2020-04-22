@@ -10,36 +10,81 @@ from django.utils import timezone
 # from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
 from .models import MentorProfile, UserMentorProfile
 from django.views.generic import TemplateView
+from django.views.generic.edit import UpdateView
 from django.db.models import Q
 
 from rest_framework import generics, filters
 from rest_framework.permissions import IsAdminUser
+import data.RCengine as RCengine
+import pickle
+from .forms import ProfileUpdateForm
 
-class OrderSummaryView(LoginRequiredMixin, View):
-    def get(self, *args, **kwargs):
+class UserDetailView(LoginRequiredMixin, View):
+    template_name = 'userprofile.html'
+
+    def get(self, request, *args, **kwargs):
         try:
             userProfile = UserMentorProfile.objects.get(user=self.request.user)
+            profile_form = ProfileUpdateForm(instance=userProfile)
             context = {
-                'object': userProfile
+                'object': userProfile,
+                'p_form': profile_form
             }
-            return render(self.request, 'userprofile.html', context)
+            return render(self.request, self.template_name, context)
         except ObjectDoesNotExist:
-            messages.warning(self.request, "You do not have an active order")
+            messages.warning(self.request, "You have not logged in")
             return redirect("/")
+
+    def post(self, request, *args, **kwarg):
+        try:
+            userProfile = UserMentorProfile.objects.get(user=self.request.user)
+            profile_form = ProfileUpdateForm(request.POST, instance=userProfile)
+            context = {
+                'object': userProfile,
+                'p_form': profile_form
+            }
+            if profile_form.is_valid():
+                profile_form.save()
+                messages.success(request, f'Your profile has been updated!')
+                return redirect('mentor:user-profile')
+            return render(self.request, self.template_name, context)
+        except ObjectDoesNotExist:
+            messages.warning(self.request, "You have not logged in")
+            return redirect("/")
+
+class UserUpdate(UpdateView):
+    model = UserMentorProfile
+    fields = ['first_name']
 
 class HomeView(ListView):
     model = MentorProfile
     paginate_by = 4
     template_name = "home2.html"
+    filename = './data/users_model.sav'
+    users = pickle.load(open(filename, 'rb'))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            userProfile = UserMentorProfile.objects.get(user=self.request.user)
+            rc_mentors_email = RCengine.get_recommendations(userProfile.major, self.users)
+            context['recommend_list'] = MentorProfile.objects.filter(
+                email__in=rc_mentors_email
+            )
+
+        else:
+            context['recommend_list'] = []
+        return context
 
 class MentorDetailView(DetailView):
     model = MentorProfile
     template_name = "product2.html"
 
+
 class SearchResultsView1(ListView):
     model = MentorProfile
     template_name = 'search_page.html'
-    paginate_by = 8
+    paginate_by = 4
 
     def get_queryset(self):
         query_name = self.request.GET.get('name')

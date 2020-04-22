@@ -22,3 +22,10 @@ class MyCustomSignupForm(SignupForm):
 
         # You must return the original result.
         return user
+
+
+# Profile update form allows users to update image
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserMentorProfile
+        fields = ['first_name', 'last_name', 'school', 'major', 'description']
