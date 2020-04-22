@@ -7,6 +7,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.utils import timezone
+from django.views.generic.base import TemplateView
 # from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
 from .models import MentorProfile, UserMentorProfile
 from django.views.generic import TemplateView
@@ -110,3 +111,16 @@ class SearchResultsView1(ListView):
         else:
             object_list = MentorProfile.objects.all()
         return object_list
+
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
+
+class EssayCounselorView(TemplateView):
+    template_name = 'essay_counselor.html'
+
+class InsiderView(TemplateView):
+    template_name = 'insider.html'
+
+class TutorView(TemplateView):
+    template_name = 'tutor.html'
