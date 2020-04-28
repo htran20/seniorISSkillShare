@@ -85,7 +85,7 @@ class MentorDetailView(DetailView):
 class SearchResultsView1(ListView):
     model = MentorProfile
     template_name = 'search_page.html'
-    paginate_by = 4
+    paginate_by = 3
 
     def get_queryset(self):
         query_name = self.request.GET.get('name')

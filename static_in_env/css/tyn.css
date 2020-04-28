@@ -202,9 +202,26 @@ avatar-counselor {
     color: #fff;
 }
 
+.square_button {
+
+    text-transform: none;
+    font-weight: 400;
+    font-size: 25px;
+
+
+    position: bottom;
+    border-color: #0f2f3c;
+    background-color: #0f2f3c;
+    color: #fff;
+
+}
+
+
 .section-header {
     height: 200px;
-    background-image: url(/static/img/sample.jpg);
+    background-image: url(/static/img/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .title_page {

@@ -78,9 +78,9 @@
             <div class="col">
 
             {% for item in object_list %}
-            <div class="counselors row">
+            <div class="counselors row"> <a href="{{ item.get_absolute_url }}" > </a>
 
-                <div class="counselor-image">
+                <div class="counselor-image">  <a href="{{ item.get_absolute_url }}" > </a>
                   {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top"> {% endcomment %}
                   <div class="avatar-counselor">
                     <a href="{{ item.get_absolute_url }}">
@@ -92,7 +92,7 @@
                   </div>
                 </div>
 
-                <div class="counselor-about">
+                <div class="counselor-about">  <a href="{{ item.get_absolute_url }}" > </a>
                   <div class="element-info">
                     <i class="fas fa-user ml-2 mr-4"></i> Employer: {{item.employer}}
                   </div>
